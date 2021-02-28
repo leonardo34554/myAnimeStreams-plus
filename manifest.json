@@ -1,0 +1,29 @@
+{
+    "id": "com.stremio.MyAnimeStreams.addon",
+    "version": "0.0.1",
+    "name": "MyAnimeStreams+",
+    "description": "Provides http streams of your favourite animes! ***Please INSTALL and use the ANIME KITSU catalog to start watching.***",
+    "catalogs": [],
+    "resources": [
+        {
+            "name": "stream",
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "kitsu"
+            ]
+        }
+    ],
+    "types": [
+        "movie",
+        "series",
+        "other"
+    ],
+    "behaviorHints": {
+        "configurable": false,
+        "configurationRequired": false
+    },
+    "logo": "https://i.imgur.com/GhbqIUw.png"
+}
