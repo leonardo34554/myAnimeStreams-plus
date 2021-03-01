@@ -7,8 +7,6 @@ const { get_stream3 } = require("./lib/providers/kisa");
 
 const MANIFEST = require("./manifest.json");
 
-const unique = new Set();
-
 function respond(res, data) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
@@ -29,7 +27,7 @@ addon.param("type", (req, res, next, val) => {
 });
 
 addon.get("/stream/:type/:media.json", async (req, res, next) => {
-  unique.add(req.headers["x-forwarded-for"] || req.connection.remoteAddress);
+
   const { media, type } = req.params;
   const arr = media.split(":");
   const id = arr[1];
@@ -62,10 +60,6 @@ addon.get("/stream/:type/:media.json", async (req, res, next) => {
   console.log(set);
   console.log("\n");
   console.log("\n");
-});
-
-addon.get("/check", (req, res) => {
-  res.send(unique.size + " ");
 });
 
 addon.get("/", (req, res) => {
